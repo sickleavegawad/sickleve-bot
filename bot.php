@@ -68,23 +68,22 @@ $api."sendMessage?chat_id=$chat_id&text=".urlencode($text)
 );
 
 }
-
 function sendDocument($chat_id,$document){
 
 global $api;
 
 $post = [
- chat_id =>$chat_id,
- document =>$document,
- caption => تقرير الإجازة المرضية 
+    'chat_id' => $chat_id,
+    'document' => $document,
+    'caption' => 'تقرير الاجازة المرضية'
 ];
 
 $ch = curl_init();
 
-curl_setopt($ch,CURLOPT_URL,$api."sendDocument");
-curl_setopt($ch,CURLOPT_POST,true);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$post);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch, CURLOPT_URL, $api . "sendDocument");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 curl_exec($ch);
 
